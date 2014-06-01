@@ -12,16 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :name %>:<%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :date %><br>
     <%= f.date_select :date %>
   </div>
   <div class="field">
-    <%= f.label :memory %><br>
-    <%= f.text_field :memory %>
+    <%= f.label :memory %>:<%= f.text_field :memory %>
+  </div>
+  <div class="field">
+    <%= f.label :mood %>:<%= f.select :mood, options_for_select([1,2,3,4,5]), include_blank: :true %>
+  </div>
+  <div class="field">
+    <%= f.label :weight %>:<%= f.text_field :weight%>
   </div>
   <div class="actions">
     <%= f.submit %>

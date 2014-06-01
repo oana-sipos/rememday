@@ -6,6 +6,8 @@
       <th>Name</th>
       <th>Date</th>
       <th>Memory</th>
+      <th>Mood</th>
+      <th>Weight</th>
       <th></th>
       <th></th>
       <th></th>
@@ -18,6 +20,8 @@
         <td><%= entry.name %></td>
         <td><%= entry.date %></td>
         <td><%= entry.memory %></td>
+        <td><%= entry.mood %></td>
+        <td><%= entry.weight %></td>
         <td><%= link_to 'Show', entry %></td>
         <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
         <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
