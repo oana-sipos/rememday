@@ -5,18 +5,15 @@ gem 'pg'
 
 gem 'jquery-rails'
 gem 'devise'
-
-group :assets do
-  gem 'sass-rails', '~> 4.0.0'
-  gem 'uglifier', '>= 1.3.0'
-  gem 'coffee-rails', '~> 4.0.0'
-  gem 'bootstrap-sass'
-  gem 'quiet_assets'
-end
-
+gem 'sass-rails', '~> 4.0.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'bootstrap-sass'
+gem 'quiet_assets'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
 gem 'simple_form'
+gem 'will_paginate'
 
 group :doc do
   gem 'sdoc', require: false
