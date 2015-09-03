@@ -1,25 +1,27 @@
-<p id="notice"><%= notice %></p>
+<div class="col-sm-8 col-sm-offset-2">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @entry.name %>
-</p>
-<p>
-  <strong>Date:</strong>
-  <%= @entry.date %>
-</p>
-<p>
-  <strong>Memory:</strong>
-  <%= @entry.memory %>
-</p>
-<p>
-  <strong>Mood:</strong>
-  <%= @entry.mood %>
-</p>
-<p>
-  <strong>Weight:</strong>
-  <%= @entry.weight%>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @entry.name %>
+  </p>
+  <p>
+    <strong>Date:</strong>
+    <%= @entry.date %>
+  </p>
+  <p>
+    <strong>Memory:</strong>
+    <%= @entry.memory %>
+  </p>
+  <p>
+    <strong>Mood:</strong>
+    <%= @entry.mood %>
+  </p>
+  <p>
+    <strong>Weight:</strong>
+    <%= @entry.weight%>
+  </p>
 
-<%= link_to 'Edit', edit_entry_path(@entry) %> |
-<%= link_to 'Back', entries_path %>
+  <%= link_to 'Edit', edit_entry_path(@entry) %> |
+  <%= link_to 'Back', entries_path %>
+</div>
