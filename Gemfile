@@ -14,6 +14,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
 gem 'simple_form'
 gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 
 group :doc do
   gem 'sdoc', require: false
