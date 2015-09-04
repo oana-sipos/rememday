@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Entry.delete_all
+Entry.create(name: 'oana',   date: '2015-02-10', memory: 'Azi e soare',   mood: 5, weight: 55)
+Entry.create(name: 'tassos', date: '2015-02-10', memory: 'Azi e bine',    mood: 5, weight: 55)
+Entry.create(name: 'oana',   date: '2015-02-10', memory: 'Azi e greu',    mood: 5, weight: 55)
+Entry.create(name: 'tassos', date: '2015-02-10', memory: 'Azi e usor',    mood: 5, weight: 55)
+Entry.create(name: 'oana',   date: '2015-02-10', memory: 'Azi e iubire',  mood: 5, weight: 55)
+Entry.create(name: 'tassos', date: '2015-02-10', memory: 'Azi e trist',   mood: 5, weight: 55)
+Entry.create(name: 'oana',   date: '2015-02-10', memory: 'Azi e soare',   mood: 5, weight: 55)
+Entry.create(name: 'tassos', date: '2015-02-10', memory: 'Azi e oana',    mood: 5, weight: 55)
+Entry.create(name: 'oana',   date: '2015-02-10', memory: 'Azi e tassos',  mood: 5, weight: 55)
+Entry.create(name: 'tassos', date: '2015-02-10', memory: 'Azi e noi',     mood: 5, weight: 55)
+Entry.create(name: 'oana',   date: '2015-02-10', memory: 'Azi e blue',    mood: 5, weight: 55)
+Entry.create(name: 'tassos', date: '2015-02-10', memory: 'Azi e vineri!', mood: 5, weight: 55)
