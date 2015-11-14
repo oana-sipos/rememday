@@ -14,6 +14,7 @@ source 'https://rubygems.org' do
   gem 'simple_form'
   gem 'will_paginate'
   gem 'will_paginate-bootstrap'
+  gem "font-awesome-rails"
 
   group :production do
     gem 'rails_12factor'
