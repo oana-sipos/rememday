@@ -15,6 +15,7 @@ source 'https://rubygems.org' do
   gem 'will_paginate'
   gem 'will_paginate-bootstrap'
   gem "font-awesome-rails"
+  gem 'react-rails', '~> 1.5.0'
 
   group :production do
     gem 'rails_12factor'
