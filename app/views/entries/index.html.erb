@@ -1,6 +1,8 @@
 <div class="col-sm-8 col-sm-offset-2">
   <h1>Rememdays</h1>
 
+  <%= react_component('Entry', {name: 'John'}) %>
+
   <table class="table">
     <thead>
       <tr>
@@ -21,7 +23,7 @@
           <td><%= entry.name %></td>
           <td><%= entry.date %></td>
           <td><%= entry.memory %></td>
-          <td><%= entry.mood %></td>
+          <td><%= react_component('Mood', {mood: entry.mood}) %></td>
           <td><%= entry.weight %></td>
           <td>
             <%= link_to entry do %>
