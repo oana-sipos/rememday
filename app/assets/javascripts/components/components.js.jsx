@@ -13,7 +13,7 @@ var EntriesTable = React.createClass({
 
 var Mood = React.createClass({
   getInitialState() {
-    return {clicked: true}
+    return {clicked: false}
   },
   handleClick(event) {
     if (this.props.clickable) {
