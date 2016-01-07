@@ -39,8 +39,8 @@ var Mood = React.createClass({
   },
   render() {
     return (
-      <div title={this.title()} onDoubleClick={this.handleClick}>
-        <span style={{color: this.color(), fontSize: this.props.weight}}>
+      <div title={this.title()} onClick={this.handleClick}>
+        <span style={{color: this.color()}}>
           {(<strong>{this.smiley()}</strong>)}
         </span>
       </div>
