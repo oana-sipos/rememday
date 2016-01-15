@@ -11,20 +11,44 @@ var EntriesTable = React.createClass({
   }
 })
 
+// var Avatar = React.createClass({
+//   render: function() {
+//     var image = null;
+//     if (this.props.entry.facebook_id !== null) {
+//       image = <FacebookPic user_id={this.props.entry.facebook_id} />
+//     } else {
+//       image = <Gravatar email={this.props.entry.name} />
+//     }
+
+//     return (
+//       <div>
+//         {image}
+//       </div>
+//     );
+//   }
+// });
+
 var Avatar = React.createClass({
   render: function() {
-    var image = null;
-    if (this.props.entry.facebook_id !== null) {
-      image = <FacebookPic user_id={this.props.entry.facebook_id} />
-    } else {
-      image = <Gravatar email={this.props.entry.name} />
-    }
-
     return (
       <div>
-        {image}
+        <FaceBookOrGravatarPic
+          email={this.props.entry.name}
+          facebook_id={this.props.entry.facebook_id} />
       </div>
     );
+  }
+});
+
+
+var FaceBookOrGravatarPic = React.createClass({
+  render: function() {
+    console.dir(this.props)
+    if (this.props.facebook_id !== null) {
+      return <FacebookPic user_id={this.props.facebook_id} />
+    } else {
+      return <Gravatar email={this.props.email} />
+    }
   }
 });
 
