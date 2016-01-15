@@ -5,12 +5,6 @@ var Entry = React.createClass({
   }
 })
 
-var EntriesTable = React.createClass({
-  render() {
-    return <div>{this.props.entries.length}</div>
-  }
-})
-
 var Avatar = React.createClass({
   render: function() {
     return (
@@ -22,7 +16,6 @@ var Avatar = React.createClass({
     );
   }
 });
-
 
 var FaceBookOrGravatarPic = React.createClass({
   facebook_id: function(){
