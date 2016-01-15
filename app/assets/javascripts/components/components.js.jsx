@@ -88,7 +88,7 @@ var Gravatar = React.createClass({
 
 var Mood = React.createClass({
   getInitialState() {
-    return {clicked: true}
+    return {clicked: false}
   },
   handleClick(event) {
     if (this.props.clickable) {
@@ -112,16 +112,18 @@ var Mood = React.createClass({
   title() {
     return this.props.mood + " - " + this.props.weight;
   },
-  showMood(event) {
-    if (this.props.clicked) {
-      return this.props.mood
+  smileyOrMood() {
+    if (!this.state.clicked) {
+      return this.smiley();
+    } else {
+      return this.props.mood;
     }
   },
   render() {
     return (
       <div title={this.title()} onClick={this.handleClick}>
         <span style={{color: this.color()}}>
-          {(<strong>{this.smiley()}</strong>)}
+          <strong>{this.smileyOrMood()}</strong>
         </span>
       </div>
     )
