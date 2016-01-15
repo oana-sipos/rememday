@@ -13,10 +13,16 @@ var EntriesTable = React.createClass({
 
 var Avatar = React.createClass({
   render: function() {
+    var image = null;
+    if (this.props.entry.facebook_id !== null) {
+      image = <FacebookPic user_id={this.props.entry.facebook_id} />
+    } else {
+      image = <Gravatar email={this.props.entry.name} />
+    }
+
     return (
       <div>
-        <FacebookPic user_id={this.props.entry.facebook_id} />
-        <Gravatar email={this.props.entry.name} />
+        {image}
       </div>
     );
   }
