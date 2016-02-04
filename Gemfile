@@ -1,4 +1,6 @@
 source 'https://rubygems.org' do
+ruby "2.1.3"
+
   gem 'rails'
   gem 'pg'
 
@@ -16,6 +18,9 @@ source 'https://rubygems.org' do
   gem 'will_paginate-bootstrap'
   gem "font-awesome-rails"
   gem 'react-rails', '~> 1.5.0'
+  gem 'binding_of_caller'
+  gem 'chartkick'
+  gem 'groupdate'
 
   group :production do
     gem 'rails_12factor'
