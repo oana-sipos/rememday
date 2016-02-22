@@ -10,7 +10,7 @@ var Avatar = React.createClass({
     return (
       <div>
         <FaceBookOrGravatarPic
-          email={this.props.entry.name}
+          email={this.props.entry.email || ''}
           facebook_id={this.props.entry.facebook_id} />
       </div>
     );

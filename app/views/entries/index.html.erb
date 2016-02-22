@@ -5,6 +5,7 @@
 
       <%#= pie_chart Entry.group(:mood).count %>
       <%#= line_chart Entry.group(:id).group(:name).group(:weight) %>
+      <%= react_component('AddEntryForm') %>
 
       <table class="table table-responsive">
         <thead>
@@ -24,7 +25,7 @@
           <% @entries.each do |entry| %>
             <tr>
               <td><%= react_component('Avatar', {entry: entry}) %></td>
-              <td class="hidden-xs"><%= entry.the_date.to_formatted_s(:short) %></td>
+              <td class="visible-sm visible-md"><%= entry.the_date && entry.the_date.to_formatted_s(:short) %></td>
               <td><%= entry.memory %></td>
               <td class="hidden-xs hidden-sm">
                 <%= react_component('Mood', {mood: entry.mood, clickable: true, weight: entry.weight}) %>
@@ -51,7 +52,6 @@
 
       <br>
 
-      <%= link_to 'New Entry', new_entry_path, class: "btn btn-info btn-sm" %>
       <%= will_paginate @entries, class: 'pull-right' %>
     </div>
   </div>

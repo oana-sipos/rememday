@@ -6,12 +6,28 @@ class Entry < ActiveRecord::Base
   end
 
   def facebook_id
-    if name == 'Oana'
-      facebook_id = 1370813229
-    elsif name == 'Tassos'
-      facebook_id = 534606643
-    else
-      ''
+    # case name
+    # when /oana/i
+    #   '1370813229'
+    # when /tassos/i
+    #   '534606643'
+    # end
+  end
+
+  def email
+    case name
+    when /oana/i
+      'oanasipos@gmail.com'
+    when /tassos/i
+      'tassos.natsakis@kuleuven.be'
+    end
+  end
+
+  def as_json(*)
+    json_keys = [:name, :date, :memory, :mood, :weight, :facebook_id, :email]
+
+    json_keys.each_with_object({}) do |key, hash|
+      hash[key] = self.send(key)
     end
   end
 
