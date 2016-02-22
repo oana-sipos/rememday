@@ -21,12 +21,15 @@ ruby "2.1.3"
   gem 'binding_of_caller'
   gem 'chartkick'
   gem 'groupdate'
+  gem 'react-bootstrap-rails'
 
   group :production do
     gem 'rails_12factor'
   end
 
   group :development, :test do
+    gem 'pry'
+    gem 'pry-rails'
     gem 'rspec-rails'
     gem 'better_errors'
   end
