@@ -106,11 +106,11 @@ var AddEntryForm = React.createClass({
                 value={this.state.mood}
                 placeholder="Mood"
                 onChange={this.handleChange('mood')}>
-                <option value={1}>1 - bad mood</option>
-                <option value={2}>2 - bad mood</option>
-                <option value={3}>3 - bad mood</option>
-                <option value={4}>4 - bad mood</option>
-                <option value={5}>5 - bad mood</option>
+                <option value={1}>1 - meeeh..</option>
+                <option value={2}>2 - yet another day</option>
+                <option value={3}>3 - okido :)</option>
+                <option value={4}>4 - great :D</option>
+                <option value={5}>5 - awesome!</option>
               </ReactBootstrap.Input>
             </ReactBootstrap.Col>
             <ReactBootstrap.Col xs={6}>
