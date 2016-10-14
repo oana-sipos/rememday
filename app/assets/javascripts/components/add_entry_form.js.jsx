@@ -99,6 +99,11 @@ var AddEntryForm = React.createClass({
             value={this.state.memory}
             placeholder="Memory"
             onChange={this.handleChange('memory')} />
+          <ReactBootstrap.Input
+            type="date"
+            inputFormat="dd/mm/yyyy"
+            value={this.state.date}
+            onChange={this.handleChange('date')}/>
           <ReactBootstrap.Row>
             <ReactBootstrap.Col xs={6}>
               <ReactBootstrap.Input
