@@ -22,7 +22,7 @@
     <%= f.label :memory %>:<%= f.text_field :memory %>
   </div>
   <div class="field">
-    <%= f.label :mood %>:<%= f.select :mood, options_for_select([1,2,3,4,5]), include_blank: :true %>
+    <%= f.label :mood %>:<%= f.select :mood, options_for_select([1,2,3,4,5],@entry.mood), include_blank: :true %>
   </div>
   <div class="field">
     <%= f.label :weight %>:<%= f.text_field :weight%>
