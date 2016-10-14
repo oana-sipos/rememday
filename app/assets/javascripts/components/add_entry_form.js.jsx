@@ -130,7 +130,7 @@ var AddEntryForm = React.createClass({
 
           {this.debug()}
         </div>
-      <ReactBootstrap.ButtonInput bsStyle="success" block type="submit" value="Post" />
+      <ReactBootstrap.ButtonInput bsStyle="success" block type="submit" value="Save memory!" />
       </form>
     );
   }
