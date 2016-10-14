@@ -47,7 +47,7 @@ var AddEntryForm = React.createClass({
   },
 
   formValid: function() {
-    if (this.state.name === "" || this.state.mood === "" ) {
+    if (this.state.name === "" || this.state.mood === "" || this.state.date === "" ) {
       return false;
     }
     else {
