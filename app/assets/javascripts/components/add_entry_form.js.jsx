@@ -42,7 +42,7 @@ var AddEntryForm = React.createClass({
     if (this.formValid()) {
       this.doTheRequest();
     } else {
-      alert('Make sure to fill in all fi')
+      alert('Make sure to fill in all fields')
     }
   },
 
