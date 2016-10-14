@@ -11,7 +11,7 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th class="visible-sm visible-md">Date</th>
+            <th class="hidden-xs hidden-sm">Date</th>
             <th>Memory</th>
             <th class="hidden-xs hidden-sm">Mood</th>
             <th class="hidden-xs hidden-sm">Weight</th>
@@ -25,7 +25,7 @@
           <% @entries.each do |entry| %>
             <tr>
               <td><%= react_component('Avatar', {entry: entry}) %></td>
-              <td class="visible-sm visible-md"><%= entry.the_date && entry.the_date.to_formatted_s(:short) %></td>
+              <td class="hidden-xs hidden-sm"><%= entry.date && entry.date.to_formatted_s(:short) %></td>
               <td><%= entry.memory %></td>
               <td class="hidden-xs hidden-sm">
                 <%= react_component('Mood', {mood: entry.mood, clickable: true, weight: entry.weight}) %>
