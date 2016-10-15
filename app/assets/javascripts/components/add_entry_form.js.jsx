@@ -21,8 +21,8 @@ var AddEntryForm = React.createClass({
   handleNumberChange: function(field) {
     return function(event) {
       var newState = {}
-      var value = event.target.value // case1: "123" case2: "123a", case3: ""
-      var numericValue = parseInt(value) // case: 123 case2: 123 case3: NaN
+      var value = event.target.value // case1: "123" case2: "123a" case3: "" case4: "12.3"
+      var numericValue = parseFloat(value) // case: 123 case2: 123 case3: NaN case4: "12.3"
       if (!(numericValue.toString() === value || value === "")) {
       //if (numericValue.toString() !== value && value !== "") {
         this.setState({
@@ -89,23 +89,31 @@ var AddEntryForm = React.createClass({
       // to manage this
       <form className="newEntry" onSubmit={this.handleSubmit}>
         <div>
-          <ReactBootstrap.Input
-            type="text"
-            value={this.state.name}
-            placeholder="Name"
-            onChange={this.handleChange('name')} />
-          <ReactBootstrap.Input
-            type="text"
-            value={this.state.memory}
-            placeholder="Memory"
-            onChange={this.handleChange('memory')} />
-          <ReactBootstrap.Input
-            type="date"
-            inputFormat="dd/mm/yyyy"
-            value={this.state.date}
-            onChange={this.handleChange('date')}/>
           <ReactBootstrap.Row>
-            <ReactBootstrap.Col xs={6}>
+            <ReactBootstrap.Col xs={2}>
+              <ReactBootstrap.Input
+                type="text"
+                value={this.state.name}
+                placeholder="Name"
+                onChange={this.handleChange('name')} />
+            </ReactBootstrap.Col>
+            <ReactBootstrap.Col xs={10}>
+              <ReactBootstrap.Input
+                type="text"
+                value={this.state.memory}
+                placeholder="Memory"
+                onChange={this.handleChange('memory')} />
+            </ReactBootstrap.Col>
+          </ReactBootstrap.Row>
+          <ReactBootstrap.Row>
+            <ReactBootstrap.Col xs={4}>
+              <ReactBootstrap.Input
+                type="date"
+                inputFormat="dd/mm/yyyy"
+                value={this.state.date}
+                onChange={this.handleChange('date')}/>
+              </ReactBootstrap.Col>
+            <ReactBootstrap.Col xs={4}>
               <ReactBootstrap.Input
                 type="select"
                 value={this.state.mood}
@@ -118,7 +126,7 @@ var AddEntryForm = React.createClass({
                 <option value={5}>5 - awesome!</option>
               </ReactBootstrap.Input>
             </ReactBootstrap.Col>
-            <ReactBootstrap.Col xs={6}>
+            <ReactBootstrap.Col xs={4}>
               <ReactBootstrap.Input
                 type="text"
                 value={this.state.weight}
