@@ -17,14 +17,13 @@ ActiveRecord::Schema.define(version: 20160110160351) do
   enable_extension "plpgsql"
 
   create_table "entries", force: :cascade do |t|
-    t.string   "name",        limit: 255
+    t.string   "name"
     t.date     "date"
-    t.string   "memory",      limit: 255
+    t.string   "memory"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "mood"
     t.decimal  "weight"
-    t.string   "username"
     t.string   "facebook_id"
   end
 
