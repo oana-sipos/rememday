@@ -5,7 +5,7 @@
 
       <%#= pie_chart Entry.group(:mood).count %>
       <%#= line_chart Entry.group(:id).group(:name).group(:weight) %>
-      <%= react_component('AddEntryForm') %>
+      <%= render 'form' %>
 
       <table class="table table-responsive">
         <thead>

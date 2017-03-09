@@ -15,11 +15,9 @@ ruby "2.4.0"
   gem 'will_paginate'
   gem 'will_paginate-bootstrap'
   gem "font-awesome-rails"
-  gem 'react-rails', '~> 1.5.0'
   gem 'binding_of_caller'
   gem 'chartkick'
   gem 'groupdate'
-  gem 'react-bootstrap-rails'
 
   group :production do
     gem 'rails_12factor'

@@ -10,24 +10,30 @@
       </ul>
     </div>
   <% end %>
+  <div class="row">
+    <div class="field col.xs-2">
+      <%= f.label :name %>:<%= f.text_field :name %>
+    </div>
+    <div class="field col.xs-10">
+      <%= f.label :memory %>:<%= f.text_field :memory %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="field col.xs-4">
+      <%= f.label :date %><br>
+      <%= f.date_select :date %>
+    </div>
 
-  <div class="field">
-    <%= f.label :name %>:<%= f.text_field :name %>
+    <div class="field col.xs-4">
+      <%= f.label :mood %>:<%= f.select :mood, options_for_select([1,2,3,4,5],@entry.mood), include_blank: :true %>
+    </div>
+    <div class="field col.xs-4">
+      <%= f.label :weight %>:<%= f.text_field :weight%>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :memory %>:<%= f.text_field :memory %>
-  </div>
-  <div class="field">
-    <%= f.label :mood %>:<%= f.select :mood, options_for_select([1,2,3,4,5],@entry.mood), include_blank: :true %>
-  </div>
-  <div class="field">
-    <%= f.label :weight %>:<%= f.text_field :weight%>
-  </div>
-  <div class="actions">
-    <%= f.submit class: "btn btn-primary btn-sm" %>
+  <div class="row">
+    <div class="actions">
+      <%= f.submit 'Save memory!', class: "btn btn-success btn-sm" %>
+    </div>
   </div>
 <% end %>
