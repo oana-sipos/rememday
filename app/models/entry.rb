@@ -5,6 +5,16 @@ class Entry < ActiveRecord::Base
     # self.date
   end
 
+  def sleep_duration
+    if !self.sleep_end.nil? && !self.sleep_start.nil?
+      duration = ((self.sleep_end-self.sleep_start) / 1.hour).round
+      if duration <0 # This happens is starting hour is before midnight
+        duration = duration + 24
+      end
+      return duration
+    end
+  end
+
   def facebook_id
     # case name
     # when /oana/i

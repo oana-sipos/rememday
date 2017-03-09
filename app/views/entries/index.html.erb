@@ -14,8 +14,8 @@
           <th>Memory</th>
           <th class="hidden-xs hidden-sm">Mood</th>
           <th class="hidden-xs hidden-sm">Weight</th>
-          <th></th>
-          <th></th>
+          <th class="hidden-xs hidden-sm">Steps</th>
+          <th class="hidden-xs hidden-sm">Sleep</th>
           <th></th>
         </tr>
       </thead>
@@ -32,16 +32,15 @@
               <% end %>
             </td>
             <td class="hidden-xs hidden-sm"><%= entry.weight %></td>
+            <td class="hidden-xs hidden-sm"><%= entry.steps %></td>
+            <td class="hidden-xs hidden-sm"><%= entry.sleep_duration %></td>
             <td>
               <%= link_to entry do %>
                 <i class="fa fa-hand-o-right"></i>
               <% end %>
-            </td>
-            <td><%= link_to edit_entry_path(entry) do %>
-                  <i class="fa fa-pencil"></i>
-                <% end %>
-            </td>
-            <td>
+              <%= link_to edit_entry_path(entry) do %>
+                <i class="fa fa-pencil"></i>
+              <% end %>
               <%= link_to entry, method: :delete, data: { confirm: 'Are you sure?' } do %>
                 <i class="fa fa-remove"></i>
               <% end %>
