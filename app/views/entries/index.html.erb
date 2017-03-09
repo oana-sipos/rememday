@@ -24,7 +24,7 @@
         <tbody>
           <% @entries.each do |entry| %>
             <tr>
-              <td><%= react_component('Avatar', {entry: entry}) %></td>
+              <td><%= entry.name %></td>
               <td class="hidden-xs hidden-sm"><%= entry.date && entry.date.to_formatted_s(:short) %></td>
               <td><%= entry.memory %></td>
               <td class="hidden-xs hidden-sm">
