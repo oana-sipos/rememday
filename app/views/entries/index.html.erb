@@ -1,60 +1,58 @@
-<div class="container">
-  <div class="container-fluid">
-    <div class="col-sm-8 col-sm-offset-2">
-      <h1>Rememdays</h1>
+<div class="container-fluid">
+  <div class="col-sm-8 col-sm-offset-2">
+    <h1>Rememdays</h1>
 
-      <%#= pie_chart Entry.group(:mood).count %>
-      <%#= line_chart Entry.group(:id).group(:name).group(:weight) %>
-      <%= render 'form' %>
+    <%#= pie_chart Entry.group(:mood).count %>
+    <%#= line_chart Entry.group(:id).group(:name).group(:weight) %>
+    <%= render 'form' %>
 
-      <table class="table table-responsive">
-        <thead>
+    <table class="table table-responsive">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th class="hidden-xs hidden-sm">Date</th>
+          <th>Memory</th>
+          <th class="hidden-xs hidden-sm">Mood</th>
+          <th class="hidden-xs hidden-sm">Weight</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @entries.each do |entry| %>
           <tr>
-            <th>Name</th>
-            <th class="hidden-xs hidden-sm">Date</th>
-            <th>Memory</th>
-            <th class="hidden-xs hidden-sm">Mood</th>
-            <th class="hidden-xs hidden-sm">Weight</th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <td><%= entry.name %></td>
+            <td class="hidden-xs hidden-sm"><%= entry.date && entry.date.to_formatted_s(:short) %></td>
+            <td><%= entry.memory %></td>
+            <td class="hidden-xs hidden-sm">
+              <% if !entry.mood.nil? %>
+                <%= @map[entry.mood] %>
+              <% end %>
+            </td>
+            <td class="hidden-xs hidden-sm"><%= entry.weight %></td>
+            <td>
+              <%= link_to entry do %>
+                <i class="fa fa-hand-o-right"></i>
+              <% end %>
+            </td>
+            <td><%= link_to edit_entry_path(entry) do %>
+                  <i class="fa fa-pencil"></i>
+                <% end %>
+            </td>
+            <td>
+              <%= link_to entry, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <i class="fa fa-remove"></i>
+              <% end %>
+            </td>
           </tr>
-        </thead>
+        <% end %>
+      </tbody>
+    </table>
 
-        <tbody>
-          <% @entries.each do |entry| %>
-            <tr>
-              <td><%= entry.name %></td>
-              <td class="hidden-xs hidden-sm"><%= entry.date && entry.date.to_formatted_s(:short) %></td>
-              <td><%= entry.memory %></td>
-              <td class="hidden-xs hidden-sm">
-                <% if !entry.mood.nil? %>
-                  <%= @map[entry.mood] %>
-                <% end %>
-              </td>
-              <td class="hidden-xs hidden-sm"><%= entry.weight %></td>
-              <td>
-                <%= link_to entry do %>
-                  <i class="fa fa-hand-o-right"></i>
-                <% end %>
-              </td>
-              <td><%= link_to edit_entry_path(entry) do %>
-                    <i class="fa fa-pencil"></i>
-                  <% end %>
-              </td>
-              <td>
-                <%= link_to entry, method: :delete, data: { confirm: 'Are you sure?' } do %>
-                  <i class="fa fa-remove"></i>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+    <br>
 
-      <br>
-
-      <%= will_paginate @entries, class: 'pull-right' %>
-    </div>
+    <%= will_paginate @entries, class: 'pull-right' %>
   </div>
 </div>
