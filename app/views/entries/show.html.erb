@@ -1,27 +1,25 @@
-<div class="col-sm-8 col-sm-offset-2">
-  <p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
 <h1>Rememday</h1>
+<p>
+  Hello, my name is <strong><%= @entry.name %></strong> and on <strong><%= @entry.date %></strong>,
+  <% if !@entry.weight.nil? %>I was <strong><%= @entry.weight %></strong> kgs and <% end %>
+  <% if !@entry.steps.nil? %>I walked <strong><%= @entry.steps %></strong> steps.<% end %>
+  <% if !@entry.sleep_start.nil? || !@entry.sleep_end.nil? %>
+    I went to bed at <strong><%= @entry.sleep_start.strftime('%I:%M %p') %></strong>
+    and woke up at <strong><%= @entry.sleep_end.strftime('%I:%M %p') %></strong>.
+    Therefore I slept for about <strong><%= @entry.sleep_duration %></strong> hours.
+  <% end %>
+  I was feeling <strong><%= @map[@entry.mood] %></strong>. This is what I remember from what day:
+</p>
+
+<blockquote>
   <p>
-    Hello, my name is <strong><%= @entry.name %></strong> and on <strong><%= @entry.date %></strong>,
-    <% if !@entry.weight.nil? %>I was <strong><%= @entry.weight %></strong> kgs and <% end %>
-    <% if !@entry.steps.nil? %>I walked <strong><%= @entry.steps %></strong> steps.<% end %>
-    <% if !@entry.sleep_start.nil? || !@entry.sleep_end.nil? %>
-      I went to bed at <strong><%= @entry.sleep_start.strftime('%I:%M %p') %></strong>
-      and woke up at <strong><%= @entry.sleep_end.strftime('%I:%M %p') %></strong>.
-      Therefore I slept for about <strong><%= @entry.sleep_duration %></strong> hours.
-    <% end %>
-    I was feeling <strong><%= @map[@entry.mood] %></strong>. This is what I remember from what day:
+    <%= @entry.memory %>
   </p>
+</blockquote>
 
-  <blockquote>
-    <p>
-      <%= @entry.memory %>
-    </p>
-  </blockquote>
-
-  <div>
-    <%= button_to 'Edit', edit_entry_path(@entry), class: 'btn btn-success', style: 'float: left;', method: :get %>
-    <%= button_to 'Back', entries_path, class: 'btn btn-primary', style: 'float: left; margin: 0 0 0 10px;', method: :get %>
-  </div>
+<div>
+  <%= button_to 'Edit', edit_entry_path(@entry), class: 'btn btn-success', style: 'float: left;', method: :get %>
+  <%= button_to 'Back', entries_path, class: 'btn btn-primary', style: 'float: left; margin: 0 0 0 10px;', method: :get %>
 </div>
