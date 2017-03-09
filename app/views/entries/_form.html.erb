@@ -10,14 +10,25 @@
       </ul>
     </div>
   <% end %>
-  <div class="form-group">
-      <%= f.text_field :name, placeholder: 'Name', class: "col-xs-2 col-md-2" %>
-      <%= f.text_field :memory, placeholder: 'Memory', class: "col-xs-10 col-md-10" %>
+  <div class="row">
+    <div class="col-xs-2 col-md-2">
+      <%= f.text_field :name, placeholder: 'Name', required: 'required', class: 'form-control' %>
+    </div>
+    <div class="col-xs-10 col-md-10">
+      <%= f.text_field :memory, placeholder: 'Memory', required: 'required', class: 'form-control' %>
+    </div>
   </div>
-  <div class="form-group">
-      <%= f.date_select :date %>
-      <%= f.select :mood, options_for_select([1,2,3,4,5],@entry.mood), include_blank: :false %>
-      <%= f.text_field :weight, placeholder: 'Weight', class: "col-md-2 col-xs-2" %>
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4">
+      <%= f.text_field :date, 'data-behaviour' => 'datepicker', placeholder: 'Date', required: 'required', class: 'form-control' %>
+    </div>
+    <div class="col-md-3 col-xs-4">
+      <%= f.select :mood, options_for_select([[@map[1],1], [@map[2],2], [@map[3],3], [@map[4],4], [@map[5],5]], @entry.mood), {}, required: 'required', class: 'form-control' %>
+    </div>
+    <div class="col-md-3 col-xs-4">
+      <%= f.text_field :weight, placeholder: 'Weight', class: 'form-control' %>
+    </div>
   </div>
   <div class="form-group">
     <div class="actions">
@@ -25,3 +36,12 @@
     </div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+$('[data-behaviour~=datepicker]').datepicker({
+  format: "yyyy-mm-dd",
+  todayBtn: true,
+  autoclose: true,
+  todayHighlight: true
+});
+</script>

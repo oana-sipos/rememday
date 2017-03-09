@@ -1,5 +1,6 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
+  before_action :dropdown_map, only: [:edit, :index, :show]
 
   # GET /entries
   # GET /entries.json
@@ -72,5 +73,9 @@ class EntriesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
       params.require(:entry).permit(:name, :date, :memory, :mood, :weight)
+    end
+
+    def dropdown_map
+      @map = ['','meeeeh...','yet another day','okido :)','great :D','awesome!']
     end
 end
