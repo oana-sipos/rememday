@@ -7,6 +7,7 @@ class EntriesController < ApplicationController
   def index
     @entry = Entry.new
     @entry.mood = 3
+    @entry.date = DateTime.yesterday.iso8601
     @entries = Entry.all.paginate(page: params[:page], per_page: 10).order('date DESC, created_at DESC')
   end
 
