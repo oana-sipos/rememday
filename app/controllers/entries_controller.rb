@@ -67,11 +67,17 @@ class EntriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_entry
       @entry = Entry.find(params[:id])
+      if !@entry.sleep_end.nil?
+        @entry.sleep_end = @entry.sleep_end.strftime("%I:%M %p")
+      end
+      if !@entry.sleep_start.nil?
+        @entry.sleep_start = @entry.sleep_start.strftime("%I:%M %p")
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit(:name, :date, :memory, :mood, :weight, :steps)
+      params.require(:entry).permit(:name, :date, :memory, :mood, :weight, :steps, :sleep_start, :sleep_end)
     end
 
     def dropdown_map

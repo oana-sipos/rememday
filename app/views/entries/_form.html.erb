@@ -11,30 +11,35 @@
     </div>
   <% end %>
   <div class="row">
+    <div class="col-md-2 col-xs-2">
+      <%= f.text_field :date, 'data-behaviour' => 'datepicker', placeholder: 'Date', required: 'required', class: 'form-control' %>
+    </div>
     <div class="col-xs-2 col-md-2">
       <%= f.text_field :name, placeholder: 'Name', required: 'required', class: 'form-control' %>
     </div>
-    <div class="col-xs-10 col-md-10">
+    <div class="col-xs-8 col-md-8">
       <%= f.text_field :memory, placeholder: 'Memory', required: 'required', class: 'form-control' %>
     </div>
   </div>
+  <br />
   <div class="row">
-    <div class="col-md-3 col-xs-3">
+    <div class="col-md-2 col-xs-2">
       <%= f.text_field :steps, placeholder: 'Steps', class: 'form-control' %>
     </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-3 col-xs-4">
-      <%= f.text_field :date, 'data-behaviour' => 'datepicker', placeholder: 'Date', required: 'required', class: 'form-control' %>
-    </div>
-    <div class="col-md-3 col-xs-4">
-      <%= f.select :mood, options_for_select([[@map[1],1], [@map[2],2], [@map[3],3], [@map[4],4], [@map[5],5]], @entry.mood), {}, required: 'required', class: 'form-control' %>
-    </div>
-    <div class="col-md-3 col-xs-4">
+    <div class="col-md-2 col-xs-2">
       <%= f.text_field :weight, placeholder: 'Weight', class: 'form-control' %>
     </div>
+    <div class="col-md-2 col-xs-2 bootstrap-timepicker">
+      <%= f.text_field :sleep_start, placeholder: 'When did you go to bed?', class: 'form-control', id: 'timepicker1' %>
+    </div>
+    <div class="col-md-2 col-xs-2 bootstrap-timepicker">
+      <%= f.text_field :sleep_end, placeholder: 'When did you wake up?', class: 'form-control', id: 'timepicker2' %>
+    </div>
+    <div class="col-md-4 col-xs-4">
+      <%= f.select :mood, options_for_select([[@map[1],1], [@map[2],2], [@map[3],3], [@map[4],4], [@map[5],5]], @entry.mood), {}, required: 'required', class: 'form-control' %>
+    </div>
   </div>
+  <br />
   <div class="form-group">
     <div class="actions">
       <%= f.submit 'Save memory!', class: "btn btn-success col-md-12" %>
@@ -49,5 +54,21 @@ $('[data-behaviour~=datepicker]').datepicker({
   autoclose: true,
   todayHighlight: true,
   endDate: "<%= Date.today.iso8601 %>"
+});
+</script>
+
+<script type="text/javascript">
+  $('#timepicker1').timepicker({
+      template: false,
+      showInputs: false,
+      minuteStep: 5
+});
+</script>
+
+<script type="text/javascript">
+  $('#timepicker2').timepicker({
+      template: false,
+      showInputs: false,
+      minuteStep: 5
 });
 </script>
