@@ -1,27 +1,22 @@
 <div class="col-sm-8 col-sm-offset-2">
   <p id="notice"><%= notice %></p>
 
+<h1>Rememday</h1>
   <p>
-    <strong>Name:</strong>
-    <%= @entry.name %>
-  </p>
-  <p>
-    <strong>Date:</strong>
-    <%= @entry.date %>
-  </p>
-  <p>
-    <strong>Memory:</strong>
-    <%= @entry.memory %>
-  </p>
-  <p>
-    <strong>Mood:</strong>
-    <%= @entry.mood %>
-  </p>
-  <p>
-    <strong>Weight:</strong>
-    <%= @entry.weight%>
+    Hello, my name is <strong><%= @entry.name %></strong> and on <strong><%= @entry.date %></strong>, I <% if !@entry.weight.nil? %> was <strong><%= @entry.weight %></strong> kgs
+    and I<% end %><% if !@entry.steps.nil? %> walked <strong><%= @entry.steps %></strong> steps. I<% end %> went to bed at <strong><%= @entry.sleep_start %></strong> and woke up at
+    <strong><%= @entry.sleep_end %></strong>. Therefore I slept for <strong><%= @entry.sleep_duration %></strong> hours. My mood was
+    <strong><%= @map[@entry.mood] %></strong> and this is what I remember from what day:
   </p>
 
-  <%= link_to 'Edit', edit_entry_path(@entry) %> |
-  <%= link_to 'Back', entries_path %>
+  <blockquote>
+    <p>
+      <%= @entry.memory %>
+    </p>
+  </blockquote>
+
+  <div>
+    <%= button_to 'Edit', edit_entry_path(@entry), class: 'btn btn-success', style: 'float: left;', method: :get %>
+    <%= button_to 'Back', entries_path, class: 'btn btn-primary', style: 'float: left; margin: 0 0 0 10px;' %>
+  </div>
 </div>
