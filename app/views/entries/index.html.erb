@@ -28,7 +28,9 @@
               <td class="hidden-xs hidden-sm"><%= entry.date && entry.date.to_formatted_s(:short) %></td>
               <td><%= entry.memory %></td>
               <td class="hidden-xs hidden-sm">
-                <%= @map[entry.mood] %>
+                <% if !entry.mood.nil? %>
+                  <%= @map[entry.mood] %>
+                <% end %>
               </td>
               <td class="hidden-xs hidden-sm"><%= entry.weight %></td>
               <td>
