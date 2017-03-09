@@ -47,6 +47,7 @@ $('[data-behaviour~=datepicker]').datepicker({
   format: "yyyy-mm-dd",
   todayBtn: true,
   autoclose: true,
-  todayHighlight: true
+  todayHighlight: true,
+  endDate: "<%= Date.today.iso8601 %>"
 });
 </script>
