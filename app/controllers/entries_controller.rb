@@ -73,7 +73,7 @@ class EntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit(:name, :date, :memory, :mood, :weight)
+      params.require(:entry).permit(:name, :date, :memory, :mood, :weight, :steps)
     end
 
     def dropdown_map

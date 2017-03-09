@@ -11,20 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160110160351) do
+ActiveRecord::Schema.define(version: 20170309101457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "entries", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",        limit: 255
     t.date     "date"
-    t.string   "memory"
+    t.string   "memory",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "mood"
     t.decimal  "weight"
     t.string   "facebook_id"
+    t.integer  "steps"
+    t.time     "sleep_start"
+    t.time     "sleep_end"
+  end
+
+  create_table "homepages", force: :cascade do |t|
+    t.string   "user",       limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
