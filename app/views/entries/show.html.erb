@@ -3,10 +3,15 @@
 
 <h1>Rememday</h1>
   <p>
-    Hello, my name is <strong><%= @entry.name %></strong> and on <strong><%= @entry.date %></strong>, I <% if !@entry.weight.nil? %> was <strong><%= @entry.weight %></strong> kgs
-    and I<% end %><% if !@entry.steps.nil? %> walked <strong><%= @entry.steps %></strong> steps. I<% end %> went to bed at <strong><%= @entry.sleep_start %></strong> and woke up at
-    <strong><%= @entry.sleep_end %></strong>. Therefore I slept for <strong><%= @entry.sleep_duration %></strong> hours. My mood was
-    <strong><%= @map[@entry.mood] %></strong> and this is what I remember from what day:
+    Hello, my name is <strong><%= @entry.name %></strong> and on <strong><%= @entry.date %></strong>,
+    <% if !@entry.weight.nil? %>I was <strong><%= @entry.weight %></strong> kgs and <% end %>
+    <% if !@entry.steps.nil? %>I walked <strong><%= @entry.steps %></strong> steps.<% end %>
+    <% if !@entry.sleep_start.nil? || !@entry.sleep_end.nil? %>
+      I went to bed at <strong><%= @entry.sleep_start.strftime('%I:%M %p') %></strong>
+      and woke up at <strong><%= @entry.sleep_end.strftime('%I:%M %p') %></strong>.
+      Therefore I slept for about <strong><%= @entry.sleep_duration %></strong> hours.
+    <% end %>
+    I was feeling <strong><%= @map[@entry.mood] %></strong>. This is what I remember from what day:
   </p>
 
   <blockquote>
